@@ -47,4 +47,24 @@ public class HjyCommunityController  extends BaseController {
         return toAjax(hjyCommunityService.insertHjyCommunity(hjyCommunity));
     }
 
+    /**
+     * 通过id查询小区
+     * @param communityId
+     * @return
+     */
+    @GetMapping("/{communityId}")
+    public BaseResponse getInfo(@PathVariable("communityId") Long communityId) {
+        return BaseResponse.success(hjyCommunityService.selectHjyCommunityById(communityId));
+    }
+
+    /**
+     * 修改小区
+     * @param hjyCommunity
+     * @return
+     */
+    @PutMapping
+    public BaseResponse edit(@RequestBody HjyCommunity hjyCommunity) {
+        return toAjax(hjyCommunityService.updateHjyCommunity(hjyCommunity));
+    }
+
 }

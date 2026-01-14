@@ -38,10 +38,10 @@ public class HjyCommunity extends BaseEntity {
     private String communityDetailedAddress;
 
     // 小区经度
-    private String longitude;
+    private String communityLongitude;
 
     // 小区维度
-    private String latitude;
+    private String communityLatitude;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     // 物业ID
@@ -107,20 +107,24 @@ public class HjyCommunity extends BaseEntity {
         this.communityDetailedAddress = communityDetailedAddress;
     }
 
-    public String getLongitude() {
-        return longitude;
+    public String getCommunityLongitude() {
+        return communityLongitude;
     }
 
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
+    public void setCommunityLongitude(String communityLongitude) {
+        this.communityLongitude = communityLongitude;
     }
 
-    public String getLatitude() {
-        return latitude;
+    public String getCommunityLatitude() {
+        return communityLatitude;
     }
 
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
+    public void setCommunityLatitude(String communityLatitude) {
+        this.communityLatitude = communityLatitude;
+    }
+
+    public void setDeptId(Long deptId) {
+        this.deptId = deptId;
     }
 
     public Long getDeptId() {

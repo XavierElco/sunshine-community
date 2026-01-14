@@ -25,4 +25,21 @@ public interface HjyCommunityService {
      * @return
      */
     Integer insertHjyCommunity(HjyCommunity hjyCommunity);
+
+    Integer deleteHjyCommunity(Long id);
+
+    /**
+     * 根据id获取小区详情
+     * @param communityId
+     * @return
+     */
+    HjyCommunity selectHjyCommunityById(Long communityId);
+
+
+    /**
+     * 修改小区
+     * @param hjyCommunity
+     * @return
+     */
+    Integer updateHjyCommunity(HjyCommunity hjyCommunity);
 }
