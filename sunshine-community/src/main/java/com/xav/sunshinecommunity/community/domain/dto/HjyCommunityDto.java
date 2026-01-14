@@ -26,11 +26,20 @@ public class HjyCommunityDto extends BaseEntity {
     // 省区划码
     private String communityProvinceCode;
 
+    // 省名称
+    private String communityProvinceName;
+
     // 市区划码
     private String communityCityCode;
 
+    // 市名称
+    private String communityCityName;
+
     // 区县划码
     private String communityTownCode;
+
+    // 区名称
+    private String communityTownName;
 
     // 小区详细地址
     private String communityDetailedAddress;
@@ -42,7 +51,7 @@ public class HjyCommunityDto extends BaseEntity {
     private String latitude;
 
     // 物业ID
-    private Long deptIdd;
+    private Long deptId;
 
     // 排序
     private Integer communitySort;
@@ -119,12 +128,12 @@ public class HjyCommunityDto extends BaseEntity {
         this.latitude = latitude;
     }
 
-    public Long getDeptIdd() {
-        return deptIdd;
+    public Long getDeptId() {
+        return deptId;
     }
 
-    public void setDeptIdd(Long deptIdd) {
-        this.deptIdd = deptIdd;
+    public void setDeptId(Long deptId) {
+        this.deptId = deptId;
     }
 
     public Integer getCommunitySort() {
@@ -135,5 +144,28 @@ public class HjyCommunityDto extends BaseEntity {
         this.communitySort = communitySort;
     }
 
+    public String getCommunityProvinceName() {
+        return communityProvinceName;
+    }
+
+    public void setCommunityProvinceName(String communityProvinceName) {
+        this.communityProvinceName = communityProvinceName;
+    }
+
+    public String getCommunityCityName() {
+        return communityCityName;
+    }
+
+    public void setCommunityCityName(String communityCityName) {
+        this.communityCityName = communityCityName;
+    }
+
+    public String getCommunityTownName() {
+        return communityTownName;
+    }
+
+    public void setCommunityTownName(String communityTownName) {
+        this.communityTownName = communityTownName;
+    }
 }
 

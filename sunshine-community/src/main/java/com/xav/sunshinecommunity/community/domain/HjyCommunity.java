@@ -45,7 +45,7 @@ public class HjyCommunity extends BaseEntity {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     // 物业ID
-    private Long deptIdd;
+    private Long deptId;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     // 排序
@@ -123,12 +123,12 @@ public class HjyCommunity extends BaseEntity {
         this.latitude = latitude;
     }
 
-    public Long getDeptIdd() {
-        return deptIdd;
+    public Long getDeptId() {
+        return deptId;
     }
 
-    public void setDeptIdd(Long deptIdd) {
-        this.deptIdd = deptIdd;
+    public void setDeptIdd(Long deptId) {
+        this.deptId = deptId;
     }
 
     public Integer getCommunitySort() {

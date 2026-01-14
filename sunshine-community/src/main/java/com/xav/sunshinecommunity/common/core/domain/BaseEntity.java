@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Map;
 
 public class BaseEntity implements Serializable {
@@ -31,7 +32,7 @@ public class BaseEntity implements Serializable {
     // 创建时间
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill= FieldFill.INSERT) // 告诉mybatis,只有在插入操作的时候才需要
-    private String createTime;
+    private Date createTime;
 
     // 更新者
     @TableField(fill= FieldFill.INSERT_UPDATE) // 告诉mybatis,只有在插入修改操作的时候才需要
@@ -40,7 +41,7 @@ public class BaseEntity implements Serializable {
     // 更新时间
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill= FieldFill.INSERT_UPDATE) // 告诉mybatis,只有在插入修改操作的时候才需要
-    private String updateTime;
+    private Date updateTime;
 
     // 备注
     private String remark;
@@ -69,13 +70,7 @@ public class BaseEntity implements Serializable {
         this.createBy = createBy;
     }
 
-    public String getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
 
     public String getUpdateBy() {
         return updateBy;
@@ -85,16 +80,26 @@ public class BaseEntity implements Serializable {
         this.updateBy = updateBy;
     }
 
-    public String getUpdateTime() {
-        return updateTime;
-    }
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
 
     public String getRemark() {
         return remark;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public void setRemark(String remark) {
@@ -104,7 +109,7 @@ public class BaseEntity implements Serializable {
     public BaseEntity() {
     }
 
-    public BaseEntity(String searchValue, Map<String, Object> params, String createBy, String createTime, String updateBy, String updateTime, String remark) {
+    public BaseEntity(String searchValue, Map<String, Object> params, String createBy, Date createTime, String updateBy, Date updateTime, String remark) {
         this.searchValue = searchValue;
         this.params = params;
         this.createBy = createBy;
