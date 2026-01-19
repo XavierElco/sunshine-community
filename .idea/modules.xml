@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/sunshie-community/sunshine-community.iml" filepath="$PROJECT_DIR$/sunshie-community/sunshine-community.iml" />
       <module fileurl="file://$PROJECT_DIR$/xav_sunshine.iml" filepath="$PROJECT_DIR$/xav_sunshine.iml" />
     </modules>
   </component>

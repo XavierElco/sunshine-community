@@ -26,7 +26,7 @@ public interface HjyCommunityService {
      */
     Integer insertHjyCommunity(HjyCommunity hjyCommunity);
 
-    Integer deleteHjyCommunity(Long id);
+    Integer deleteHjyCommunity(Long[] communityIds);
 
     /**
      * 根据id获取小区详情

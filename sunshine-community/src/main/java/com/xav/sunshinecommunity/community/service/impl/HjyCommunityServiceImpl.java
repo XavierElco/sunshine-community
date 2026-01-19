@@ -7,6 +7,8 @@ import com.xav.sunshinecommunity.community.service.HjyCommunityService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -39,8 +41,8 @@ public class HjyCommunityServiceImpl implements HjyCommunityService {
     }
 
     @Override
-    public Integer deleteHjyCommunity(Long id) {
-        return hjyCommunityMapper.deleteById(id);
+    public Integer deleteHjyCommunity(Long[] communityIds) {
+        return hjyCommunityMapper.deleteBatchIds(Arrays.asList(communityIds));
     }
 
     @Override

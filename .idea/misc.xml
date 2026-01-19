@@ -8,7 +8,15 @@
         <option value="$PROJECT_DIR$/sunshie-community/pom.xml" />
         <option value="$PROJECT_DIR$/sunshine-community/pom.xml" />
         <option value="$PROJECT_DIR$/../easy_code/pom.xml" />
+        <option value="$PROJECT_DIR$/../easy_code/easypoi_boot/pom.xml" />
+        <option value="$PROJECT_DIR$/../easyPoi_boot/pom.xml" />
+        <option value="$PROJECT_DIR$/../easypoi_boot/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../easy_code/easypoi_boot/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="ms-11" project-jdk-type="JavaSDK">
