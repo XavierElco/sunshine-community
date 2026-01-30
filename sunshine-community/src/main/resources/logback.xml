@@ -2,8 +2,11 @@
 <configuration>
     <!-- 日志存放路径 -->
     <property name="log.path" value="/Users/Java面试/合家云/logs" />
-    <!-- 日志输出格式 -->
-    <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n" />
+<!--    &lt;!&ndash; 日志输出格式 &ndash;&gt;-->
+<!--    <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n" />-->
+
+    <property name="log.pattern"
+              value="%red(%date{yyyy-MM-dd HH:mm:ss}) %highlight(%-5level) %red([%thread]) %boldMagenta(%logger{50}) - [%method,%line] - %cyan(%msg%n)"/>
 
     <!-- 控制台输出 -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">

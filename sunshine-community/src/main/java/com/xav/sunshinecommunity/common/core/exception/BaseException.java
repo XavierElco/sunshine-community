@@ -21,6 +21,10 @@ public class BaseException extends RuntimeException{
     public BaseException() {
     }
 
+    public BaseException(String defaultMessage) {
+        this.defaultMessage = defaultMessage;
+    }
+
     public String getCode() {
         return code;
     }

@@ -2,6 +2,7 @@ package com.xav.sunshinecommunity.community.service;
 
 import com.xav.sunshinecommunity.community.domain.HjyCommunity;
 import com.xav.sunshinecommunity.community.domain.dto.HjyCommunityDto;
+import com.xav.sunshinecommunity.community.domain.vo.HjyCommunityVo;
 
 import java.util.List;
 
@@ -42,4 +43,12 @@ public interface HjyCommunityService {
      * @return
      */
     Integer updateHjyCommunity(HjyCommunity hjyCommunity);
+
+
+    /**
+     * 获取小区下拉列表
+     * @param hjyCommunity
+     * @return
+     */
+    List<HjyCommunityVo> queryPullDown(HjyCommunity hjyCommunity);
 }

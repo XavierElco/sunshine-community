@@ -22,7 +22,7 @@ public class BaseController {
     public static final String PAGE_NUM = "pageNum";
 
     /* 当前页面大小 */
-    public static final String PAGE_SIZE = "pageNum";
+    public static final String PAGE_SIZE = "pageSize";
 
     /**
      * 封装分页数据
@@ -30,7 +30,7 @@ public class BaseController {
     public static PageDomain getPageDomain() {
         PageDomain pageDomain = new PageDomain();
         pageDomain.setPageNum(ServletUtils.getParameterToInt(PAGE_NUM));
-        pageDomain.setPageNum(ServletUtils.getParameterToInt(PAGE_SIZE));
+        pageDomain.setPageSize(ServletUtils.getParameterToInt(PAGE_SIZE));
 
         return pageDomain;
     }

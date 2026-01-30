@@ -5,7 +5,9 @@ import com.xav.sunshinecommunity.common.core.domain.BaseResponse;
 import com.xav.sunshinecommunity.common.core.page.PageResult;
 import com.xav.sunshinecommunity.community.domain.HjyCommunity;
 import com.xav.sunshinecommunity.community.domain.dto.HjyCommunityDto;
+import com.xav.sunshinecommunity.community.domain.vo.HjyCommunityVo;
 import com.xav.sunshinecommunity.community.service.HjyCommunityService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -17,6 +19,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/community")
+@Slf4j
 public class HjyCommunityController  extends BaseController {
 
     @Resource
@@ -75,6 +78,32 @@ public class HjyCommunityController  extends BaseController {
     @DeleteMapping("/{communityIds}")
     public BaseResponse delete(@PathVariable Long[] communityIds) {
         return toAjax(hjyCommunityService.deleteHjyCommunity(communityIds));
+    }
+
+
+    /**
+     * 小区下拉列表展示
+     * @param hjyCommunity
+     * @return
+     */
+    @GetMapping("/queryPullDown")
+    public BaseResponse queryPullDown(HjyCommunity hjyCommunity){
+
+        // 打印入参日志
+        log.info("log() called with parameters => [hiyCommunity = {}]", hjyCommunity);
+
+        List<HjyCommunityVo> voList = null;
+
+        try {
+            voList = hjyCommunityService.queryPullDown(hjyCommunity);
+        } catch (Exception e) {
+            log.warn("获取小区下拉列表失败！",e);
+        }
+
+        // 打印日志 返回结果
+        log.info("log() returned: {}", voList);
+
+        return BaseResponse.success(voList);
     }
 
 }

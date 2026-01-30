@@ -14,46 +14,46 @@ public class HjyCommunityDto extends BaseEntity {
     private static final long serialVersionUID = 5610991333566137154L;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    // 小区编号
+    /** 小区编号 *///
     private Long communityId;
 
-    // 小区名称
+    /** 小区名称*///
     private String communityName;
 
-    // 小区编码
+    /** 小区编码*/// 小区编码
     private String communityCode;
 
-    // 省区划码
+    /** 省区划码*/// 省区划码
     private String communityProvinceCode;
 
-    // 省名称
+    /** 省名称*/// 省名称
     private String communityProvinceName;
 
-    // 市区划码
+    /** 市区划码 */
     private String communityCityCode;
 
-    // 市名称
+    /** 市名称 */
     private String communityCityName;
 
-    // 区县划码
+    /** 区县划码*/// 区县划码
     private String communityTownCode;
 
-    // 区名称
+    /** 区名称*/// 区名称
     private String communityTownName;
 
-    // 小区详细地址
+    /** 小区详细地址*/// 小区详细地址
     private String communityDetailedAddress;
 
-    // 小区经度
+    /** 小区经度*/// 小区经度
     private String longitude;
 
-    // 小区维度
+    /** 小区维度*/// 小区维度
     private String latitude;
 
-    // 物业ID
+    /** 物业ID*/// 物业ID
     private Long deptId;
 
-    // 排序
+    /** 排序*/// 排序
     private Integer communitySort;
 
     public Long getCommunityId() {

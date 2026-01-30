@@ -1,7 +1,9 @@
 package com.xav.sunshinecommunity.community.service.impl;
 
+import com.xav.sunshinecommunity.common.utils.OrikaUtils;
 import com.xav.sunshinecommunity.community.domain.HjyCommunity;
 import com.xav.sunshinecommunity.community.domain.dto.HjyCommunityDto;
+import com.xav.sunshinecommunity.community.domain.vo.HjyCommunityVo;
 import com.xav.sunshinecommunity.community.mapper.HjyCommunityMapper;
 import com.xav.sunshinecommunity.community.service.HjyCommunityService;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import javax.annotation.Resource;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Li,chengming
@@ -48,5 +51,19 @@ public class HjyCommunityServiceImpl implements HjyCommunityService {
     @Override
     public Integer updateHjyCommunity(HjyCommunity hjyCommunity) {
         return hjyCommunityMapper.updateById(hjyCommunity);
+    }
+
+    @Override
+    public List<HjyCommunityVo> queryPullDown(HjyCommunity hjyCommunity) {
+        List<HjyCommunityDto> dtoList = hjyCommunityMapper.queryList(hjyCommunity);
+
+        // 对象拷贝
+        List<HjyCommunityVo> communityVoList = dtoList.stream().map(dto -> {
+
+            // 使用Orika完成对象拷贝
+            return OrikaUtils.convert(dto, HjyCommunityVo.class);
+        }).collect(Collectors.toList());
+
+        return communityVoList;
     }
 }

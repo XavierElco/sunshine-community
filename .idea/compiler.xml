@@ -9,7 +9,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="easy_code" />
         <module name="easypoi_boot" />
+        <module name="springsecurity_example2" />
         <module name="sunshine-community" />
+        <module name="springsecurity_example" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +22,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="easyPoi_boot" options="-parameters" />
       <module name="easypoi_boot" options="-parameters" />
+      <module name="springsecurity_example" options="-parameters" />
+      <module name="springsecurity_example2" options="-parameters" />
       <module name="sunshine-community" options="-parameters" />
     </option>
   </component>
