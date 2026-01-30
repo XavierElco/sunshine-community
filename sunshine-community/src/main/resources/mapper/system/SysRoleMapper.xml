@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xav.sunshinecommunity.system.mapper.SysRoleMapper">
+
+
+    <!--查询单个-->
+    <select id="selectRolePermissionByUserId" parameterType="long" resultType="String">
+        SELECT distinct sr.role_key
+        FROM sys_role sr
+                 left join sys_user_role sur ON sr.role_id = sur.role_id
+                 left join sys_user su on sur.user_id = su.user_id
+
+        WHERE sur.user_id = #{userId}
+
+    </select>
+
+
+</mapper>
+

@@ -1,5 +1,6 @@
 package com.xav.sunshinecommunity.framework.config;
 
+import com.xav.sunshinecommunity.framework.security.filter.JwtAuthenticationTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -30,6 +33,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Resource
     private AuthenticationEntryPoint unauthorizedHandler;
+
+    @Resource
+    private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
+
+    @Resource
+    private CorsFilter corsFilter;
 
     /**
      * 解决 无法直接注入 AuthenticationManager
@@ -77,9 +86,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //认证失败处理器
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler);
 
-        //添加 JWTFilter
+        // 添加 JWTFilter
+        http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        // 添加 CORS filter
+        http.addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class);
+        // 确保在用户注销时，响应头中依旧包含跨域字段
+        http.addFilterBefore(corsFilter, LogoutFilter.class);
 
-        //添加 CORS filter
     }
 
     /*

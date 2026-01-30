@@ -5,6 +5,9 @@ package com.xav.sunshinecommunity.log;
  * @date 2026/1/19 22:18
  */
 
+import com.xav.sunshinecommunity.system.service.SysRoleService;
+import com.xav.sunshinecommunity.system.service.SysUserService;
+import com.xav.sunshinecommunity.system.service.impl.SysMenuService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -13,6 +16,9 @@ import org.slf4j.LoggerFactory;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.annotation.Resource;
+import java.util.Set;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -53,5 +59,20 @@ public class LogDemo {
         String name = "我是大佬";
         log.info("hello" + name);
         log.debug("hello{}", name); // 推荐使用占位符
+    }
+
+    @Resource
+    SysRoleService sysRoleService;
+
+    @Resource
+    SysMenuService sysMenuService;
+
+    @Test
+    public void testSelectRoleAndMenuByUserId() {
+        Set<String> rolePerms = sysRoleService.selectRolePermissionByUserId(1L);
+        System.out.println("用户角色权限信息" + rolePerms);
+
+        Set<String> menuPerms = sysMenuService.selectMenuPermsByUserId(2L);
+        System.out.println("菜单角色权限信息" + menuPerms);
     }
 }
