@@ -20,6 +20,33 @@ public class LoginUser implements UserDetails {
      */
     private String token;
 
+    /**
+     * 登陆时间
+     */
+    private Long loginTime;
+
+    /**
+     * 过期时间
+     */
+    private Long expireTime;
+
+
+    public Long getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(Long expireTime) {
+        this.expireTime = expireTime;
+    }
+
+    public Long getLoginTime() {
+        return loginTime;
+    }
+
+    public void setLoginTime(Long loginTime) {
+        this.loginTime = loginTime;
+    }
+
     public LoginUser(SysUser sysUser) {
         this.sysUser = sysUser;
     }
