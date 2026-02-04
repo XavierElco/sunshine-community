@@ -1,9 +1,8 @@
 package com.xav.sunshinecommunity.framework.service;
 
-import com.xav.sunshinecommunity.common.utils.ChainedMap;
 import com.xav.sunshinecommunity.system.domain.SysUser;
 import com.xav.sunshinecommunity.system.service.SysRoleService;
-import com.xav.sunshinecommunity.system.service.impl.SysMenuService;
+import com.xav.sunshinecommunity.system.service.SysMenuService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

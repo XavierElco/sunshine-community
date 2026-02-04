@@ -1,13 +1,17 @@
 package com.xav.sunshinecommunity.web.controller.system;
 
+import com.xav.sunshinecommunity.common.core.domain.BaseResponse;
 import com.xav.sunshinecommunity.common.core.exception.BaseException;
 import com.xav.sunshinecommunity.common.utils.ChainedMap;
 import com.xav.sunshinecommunity.common.utils.ServletUtils;
 import com.xav.sunshinecommunity.framework.service.SysPermissionService;
 import com.xav.sunshinecommunity.system.domain.LoginUser;
+import com.xav.sunshinecommunity.system.domain.SysMenu;
 import com.xav.sunshinecommunity.system.domain.SysUser;
 import com.xav.sunshinecommunity.system.domain.vo.LoginBody;
+import com.xav.sunshinecommunity.system.domain.vo.RouterVo;
 import com.xav.sunshinecommunity.system.service.SysLoginService;
+import com.xav.sunshinecommunity.system.service.SysMenuService;
 import com.xav.sunshinecommunity.system.service.TokenService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -33,6 +38,9 @@ public class SysLoginController {
 
     @Resource
     private TokenService tokenService;
+
+    @Resource
+    private SysMenuService sysMenuService;
 
 
     /**
@@ -77,5 +85,23 @@ public class SysLoginController {
         map.put("permissions", perms);
 
         return map;
+
+    }
+
+
+    /**
+     * 获取路由信息
+     * @return 路由信息
+     */
+    @GetMapping("/getRouters")
+    public BaseResponse getRouters() {
+        LoginUser loginUser = tokenService.getLoginUser(ServletUtils.getRequest());
+        SysUser user = loginUser.getSysUser();
+        // 获取菜单列表
+        List<SysMenu> menus = sysMenuService.selectMenuTreeByUserId(user.getUserId());
+
+        // 将获取到的菜单列表转化为前段需要的路由列表
+        List<RouterVo> routerVoList = sysMenuService.buildMenus(menus);
+        return BaseResponse.success(routerVoList);
     }
 }

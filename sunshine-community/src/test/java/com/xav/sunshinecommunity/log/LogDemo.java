@@ -5,9 +5,10 @@ package com.xav.sunshinecommunity.log;
  * @date 2026/1/19 22:18
  */
 
+import com.xav.sunshinecommunity.system.domain.SysMenu;
+import com.xav.sunshinecommunity.system.mapper.SysMenuMapper;
 import com.xav.sunshinecommunity.system.service.SysRoleService;
-import com.xav.sunshinecommunity.system.service.SysUserService;
-import com.xav.sunshinecommunity.system.service.impl.SysMenuService;
+import com.xav.sunshinecommunity.system.service.SysMenuService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -18,6 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Set;
 
 @RunWith(SpringRunner.class)
@@ -75,4 +77,20 @@ public class LogDemo {
         Set<String> menuPerms = sysMenuService.selectMenuPermsByUserId(2L);
         System.out.println("菜单角色权限信息" + menuPerms);
     }
+
+    @Resource
+    SysMenuMapper sysMenuMapper;
+
+    @Test
+    public void testSelectMenuTreeAll() {
+        List<SysMenu> sysMenus = sysMenuMapper.selectMenuTreeAll();
+        System.out.println(sysMenus);
+    }
+
+    @Test
+    public void testSelectMenuTreeByUserId() {
+        List<SysMenu> sysMenus = sysMenuMapper.selectMenuTreeByUserId(2L);
+        System.out.println(sysMenus);
+    }
+
 }
